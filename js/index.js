@@ -2,8 +2,11 @@
 
 const getDate = ()=>{
     const date = document.getElementById("date");
-    const now = new Date;
-
+    const agora = new Date();
+ const offsetBrasilia = -3 * 60;
+    
+    // Calcula a hora em Brasília
+    const now = new Date(agora.getTime() + (offsetBrasilia * 60 * 1000));  
     let dateString = now.toUTCString().slice(0, 25);
     date.innerText = dateString
     setTimeout(()=>{getDate()}, 1000)
